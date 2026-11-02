@@ -10,8 +10,7 @@
       "args": [],
       "cwd": "${workspaceFolder}",
       "env": { "PYTHONUTF8": "1" },
-      "console": "integratedTerminal",
-      "preLaunchTask": "Sync Python environment"
+      "console": "internalConsole"
     },
     {
       "name": "Debug current Python file",
