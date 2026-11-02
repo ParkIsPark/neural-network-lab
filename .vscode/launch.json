@@ -9,6 +9,21 @@
       "python": "${workspaceFolder}/.venv/Scripts/python.exe",
       "args": [],
       "cwd": "${workspaceFolder}",
+      "env": { "PYTHONUTF8": "1" },
+      "console": "integratedTerminal",
+      "preLaunchTask": "Sync Python environment"
+    },
+    {
+      "name": "Debug current Python file",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONUTF8": "1",
+        "PYTHONPATH": "${workspaceFolder}"
+      },
       "console": "integratedTerminal",
       "preLaunchTask": "Sync Python environment"
     }

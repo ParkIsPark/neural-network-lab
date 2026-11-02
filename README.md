@@ -13,7 +13,7 @@ networks/
   _template/          새 신경망 폴더를 만들 때 복사할 기본 틀
 common/
   paths.py            공용 데이터 경로
-학습 데이터/
+Traning_data/
   raw/                원본 데이터
   processed/          전처리 결과
 pyproject.toml        Python 버전 범위와 의존성
@@ -23,7 +23,7 @@ uv.lock               설치 버전을 고정한 잠금 파일
 
 ## 환경 구성
 
-Python 3.13과 [uv](https://docs.astral.sh/uv/)를 사용합니다. 외부 라이브러리는 NumPy와 Matplotlib입니다.
+Python 3.13과 [uv](https://docs.astral.sh/uv/)를 사용합니다. 외부 라이브러리는 NumPy, Matplotlib, pybind11입니다.
 
 ```powershell
 git clone https://github.com/ParkIsPark/neural-network-lab.git
@@ -51,7 +51,7 @@ uv run python -m networks.cnn
 
 ## 데이터 관리
 
-원본 데이터는 `학습 데이터/raw/`, 전처리 결과는 `학습 데이터/processed/`에 보관합니다. 데이터셋별 하위 폴더를 추가할 수 있습니다.
+원본 데이터는 `Traning_data/raw/`, 전처리 결과는 `Traning_data/processed/`에 보관합니다. 데이터셋별 하위 폴더를 추가할 수 있습니다.
 
 ```python
 from common.paths import RAW_DATA_DIR, PROCESSED_DATA_DIR
@@ -60,7 +60,7 @@ source = RAW_DATA_DIR / "dataset_name"
 destination = PROCESSED_DATA_DIR / "dataset_name"
 ```
 
-공용 경로는 소스 파일 위치를 기준으로 계산하므로 데이터 폴더의 한글 이름을 각 구현에서 반복해서 입력할 필요가 없습니다.
+공용 경로는 소스 파일 위치를 기준으로 계산합니다.
 
 실제 데이터 파일, 가상환경, Python 캐시, `outputs/`의 실행 결과는 Git에 포함하지 않습니다. 데이터 폴더 구조와 설명용 README는 Git에 보관합니다.
 
@@ -69,3 +69,5 @@ destination = PROCESSED_DATA_DIR / "dataset_name"
 이 저장소 폴더를 열고 권장 확장을 설치합니다. `Ctrl+Shift+B`로 MLP 환경 확인 예제를 실행하고, `F5`로 디버깅할 수 있습니다. 인터프리터는 `.venv/Scripts/python.exe`를 사용합니다.
 
 다른 신경망을 디버깅하려면 `.vscode/launch.json`의 설정을 복사하고 `module`을 `networks.cnn`처럼 변경합니다.
+
+현재 열린 Python 파일을 실행하려면 실행 및 디버그 목록에서 `Debug current Python file`을 선택합니다. 이 설정은 프로젝트 루트를 import 경로에 추가합니다.
