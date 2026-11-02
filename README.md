@@ -9,6 +9,7 @@ NumPy로 여러 신경망을 직접 구현하는 Python 학습 프로젝트입�
 ```text
 networks/
   mlp/                첫 번째 신경망 작업 폴더
+  transformer_origin/ Transformer 작업 폴더
   _template/          새 신경망 폴더를 만들 때 복사할 기본 틀
 common/
   paths.py            공용 데이터 경로
