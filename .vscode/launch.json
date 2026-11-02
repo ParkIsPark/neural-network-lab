@@ -2,15 +2,15 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Eigen setup",
-      "type": "cppvsdbg",
+      "name": "Debug MLP workspace",
+      "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/build/windows/Debug/eigen_smoke.exe",
+      "module": "networks.mlp",
+      "python": "${workspaceFolder}/.venv/Scripts/python.exe",
       "args": [],
       "cwd": "${workspaceFolder}",
-      "stopAtEntry": false,
       "console": "integratedTerminal",
-      "preLaunchTask": "Build (Debug)"
+      "preLaunchTask": "Sync Python environment"
     }
   ]
 }

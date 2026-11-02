@@ -1,7 +1,7 @@
-/build/
+/.venv/
+__pycache__/
+*.py[cod]
 /.cache/
-/.vs/
-/CMakeUserPresets.json
-*.user
+/outputs/
 .env
 .env.*

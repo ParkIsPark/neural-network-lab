@@ -2,31 +2,34 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Configure",
+      "label": "Sync Python environment",
       "type": "process",
-      "command": "cmake",
-      "args": ["--preset", "windows"],
-      "options": { "cwd": "${workspaceFolder}" },
+      "command": "uv",
+      "args": [
+        "sync",
+        "--locked"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
       "problemMatcher": []
     },
     {
-      "label": "Build (Debug)",
+      "label": "Run MLP workspace",
       "type": "process",
-      "command": "cmake",
-      "args": ["--build", "--preset", "debug"],
-      "options": { "cwd": "${workspaceFolder}" },
-      "dependsOn": "Configure",
-      "group": { "kind": "build", "isDefault": true },
-      "problemMatcher": "$msCompile"
-    },
-    {
-      "label": "Test (Debug)",
-      "type": "process",
-      "command": "ctest",
-      "args": ["--preset", "debug"],
-      "options": { "cwd": "${workspaceFolder}" },
-      "dependsOn": "Build (Debug)",
-      "group": "test",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "-m",
+        "networks.mlp"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "dependsOn": "Sync Python environment",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
       "problemMatcher": []
     }
   ]
